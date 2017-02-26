@@ -11,6 +11,8 @@
   copy:
     src: default.vcl
     dest: /etc/varnish/default.vcl
+  notify:
+    - Reload Varnish
 
 - name: Create varnish.service.d directory
   become: yes

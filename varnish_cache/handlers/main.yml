@@ -7,3 +7,7 @@
 - name: Restart Varnish
   become: yes
   service: name=varnish state=restarted
+
+- name: Reload Varnish
+  become: yes
+  service: name=varnish state=reloaded

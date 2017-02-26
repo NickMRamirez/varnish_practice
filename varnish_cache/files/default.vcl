@@ -25,10 +25,6 @@ sub vcl_recv {
     # rewriting the request, etc.
 }
 
-sub vcl_fetch {
-    # Happens when the response has been gathered from the backend before placing it in the cache. 
-}
-
 sub vcl_backend_response {
     # Happens after we have read the response headers from the backend.
     #
