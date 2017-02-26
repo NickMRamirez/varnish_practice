@@ -1,0 +1,28 @@
+---
+# tasks file for varnish_cache
+- name: Install Varnish
+  become: yes
+  apt:
+    name: varnish
+    update_cache: yes
+
+- name: "Copy default.vcl"  
+  become: yes 
+  copy:
+    src: default.vcl
+    dest: /etc/varnish/default.vcl
+
+- name: Create varnish.service.d directory
+  become: yes
+  file:
+    path: /etc/systemd/system/varnish.service.d
+    state: directory
+      
+- name: "Copy customexec.conf"  
+  become: yes 
+  copy:
+    src: customexec.conf
+    dest: /etc/systemd/system/varnish.service.d/customexec.conf
+  notify:
+    - Reload systemctl daemon
+    - Restart Varnish

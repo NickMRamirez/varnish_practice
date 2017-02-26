@@ -1,0 +1,4 @@
+---
+- hosts: cache
+  roles:
+    - varnish_cache

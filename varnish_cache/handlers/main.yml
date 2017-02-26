@@ -1,0 +1,9 @@
+---
+# handlers file for varnish_cache
+- name: Reload systemctl daemon
+  become: yes
+  shell: systemctl daemon-reload
+
+- name: Restart Varnish
+  become: yes
+  service: name=varnish state=restarted
