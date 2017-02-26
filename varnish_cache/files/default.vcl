@@ -19,10 +19,14 @@ backend default {
 }
 
 sub vcl_recv {
-    # Happens before we check if we have this in cache already.
+    # Happens at the start of a request, before we check if we have this in cache already.
     #
     # Typically you clean up the request here, removing cookies you don't need,
     # rewriting the request, etc.
+}
+
+sub vcl_fetch {
+    # Happens when the response has been gathered from the backend before placing it in the cache. 
 }
 
 sub vcl_backend_response {
