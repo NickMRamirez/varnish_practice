@@ -6,10 +6,10 @@
     name: nginx
     update_cache: yes
   
-- name: "Remove index.nginx-debian.html"
+- name: "Clean HTML folder"
   become: yes
   file: 
-    path: /var/www/html/index.nginx-debian.html
+    path: /var/www/html/
     state: absent
   
 - name: "Copy website files"  
