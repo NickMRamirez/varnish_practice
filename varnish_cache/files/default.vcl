@@ -57,7 +57,7 @@ sub vcl_backend_response {
         set beresp.ttl = 30s;
     }
     else {
-        set beresp.ttl = 356d;
+        set beresp.ttl = 365d;
     }
 }
 
